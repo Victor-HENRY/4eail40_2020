@@ -82,6 +82,39 @@ fonc (t *tour) Mouve(direction, distence int){//dirction: 1 haut/gauche, 2 haut/
   }
 }
 type reine(p piece)(alavie bool)
+fonc (r *rein) Mouve(direction, distence int){//dirction: 1 haut/bas, 2 droite/gauche
+  swicth dirction {
+    case 1:
+      b MouvePiece(X, Y, X, Y+distence)
+      Y := Y+distence
+    cecase 2:
+      b MouvePiece(X, Y, X+distence, Y+distence)
+      X := X+distence
+      Y := Y+distence
+    case 3:
+      b MouvePiece(X, Y, X+distence, Y)
+      X := X+distence
+    case 4:
+      b MouvePiece(X, Y, X+distence, Y-distence)
+      X := X+distence
+      Y := Y-distence
+    case 5:
+      b MouvePiece(X, Y, X, Y-distence)
+      Y := Y-distence
+    case 6:
+      b MouvePiece(X, Y, X-distence, Y-distence)
+      X := X-distence
+      Y := Y-distence
+    case 7:
+      b MouvePiece(X, Y, X-distence, Y)
+      X := X-distence
+    case 8:
+      b MouvePiece(X, Y, X-distence, Y+distence)
+      X := X-distence
+      Y := Y+distence
+  }
+}
+
 
 type roi(p piece)(alavie bool)
 fonc (k *roi) Mouve(direction, distence bool){//dirction: 1 haut/bas, 2 droite/gauche
