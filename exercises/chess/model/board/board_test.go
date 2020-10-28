@@ -17,6 +17,33 @@ func (c mockCoord) String() string {
 	return "1"
 }
 
+func TestClassic_PlacePieceAt(t *testing.T) {
+	type args struct {
+		p piece.Piece
+		at coord.ChessCoordinates
+	}
+	tests := []struct {
+		name    string
+		c       *Classic
+		args    args
+		wantErr bool
+	}{
+		{
+			"testmock",
+			&Classic{},
+			args{mockCoord(0), mockCoord(1)},
+			true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if err := tt.c.PlacePieceAt(tt.args.p, tt.args.at); (err != nil) != tt.wantErr {
+				t.Errorf("Classic.PlacePieceAt() error = %v, wantErr %v", err, tt.wantErr)
+			}
+		})
+	}
+}
+
 func TestClassic_MovePiece(t *testing.T) {
 	type args struct {
 		from coord.ChessCoordinates
@@ -43,3 +70,4 @@ func TestClassic_MovePiece(t *testing.T) {
 		})
 	}
 }
+
